@@ -48,7 +48,7 @@ export class RegisterComponent implements OnInit {
     mentorData.append('mobile', this.registrationForm.value.mobile);
     mentorData.append('address', this.registrationForm.value.address);
     //mentorData.append('uploadImg', null);
-    this.userService.mentorRegistration(this.student).subscribe(data => {
+    this.userService.studentRegistration(this.student).subscribe(data => {
       this.snackBar.open('Registration Successfull !!', '', {duration: 3000});
       this.router.navigate(['login']);
     }, error => {

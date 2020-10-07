@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
   recoveryEmail = '';
   emailId : string = "";
   password : string = "";
+  id: number;
 
   constructor(private formBuilder: FormBuilder,
               private userservice: UserService,
@@ -33,7 +34,13 @@ export class LoginComponent implements OnInit {
     this.userservice.login(this.emailId,this.password).subscribe( data => {
       if(data == true){
         sessionStorage.setItem('login', JSON.stringify(data));
-        this.router.navigate(['aptitude-test']);
+        this.userservice.get_student_details(this.emailId).subscribe(
+          data=>{
+            this.id = data.studentId;
+            this.router.navigate(['aptitude-test',this.id]);
+          }
+        )
+        //this.router.navigate(['aptitude-test']);
       }
       
     })

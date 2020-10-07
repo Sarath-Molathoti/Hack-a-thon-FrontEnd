@@ -17,7 +17,7 @@ const routes: Routes = [
       { path: 'register', component: RegisterComponent },
       { path: 'admin', component: AdminComponent },
       {path: '', component: RegisterComponent},
-      {path: 'aptitude-test', component: AptitudeComponent},
+      {path: 'aptitude-test/:id', component: AptitudeComponent},
       {path: 'coding-test', component: CodingComponent}
       ]
   },

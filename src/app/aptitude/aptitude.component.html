@@ -1,5 +1,10 @@
 <div>
-    <countdown [config]="{leftTime : 10}" (event)="onTimerFinished($event)"></countdown>
+    Name : {{student.name}} <br>
+    Email : {{student.emailId}}<br>
+    CollegeName : {{student.collegeName}}
+</div>
+<div>
+    <countdown [config]="{leftTime : 60}" (event)="onTimerFinished($event)"></countdown>
     <ul style="list-style-type:none;">
         <li *ngFor="let i of aptQuestions;index as k">
            {{k+1}}. {{i.question}}
