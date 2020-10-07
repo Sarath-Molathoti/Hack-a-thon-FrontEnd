@@ -13,6 +13,8 @@ import { ExamPageComponent } from './exam-page/exam-page.component';
 import { CountdownModule } from 'ngx-countdown';
 import { AptitudeComponent } from './aptitude/aptitude.component';
 import { CodingComponent } from './coding/coding.component';
+import { ResultComponent } from './result/result.component';
+import { AddQuestionsComponent } from './add-questions/add-questions.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { CodingComponent } from './coding/coding.component';
     AdminComponent,
     ExamPageComponent,
     AptitudeComponent,
-    CodingComponent
+    CodingComponent,
+    ResultComponent,
+    AddQuestionsComponent
   ],
   imports: [
     BrowserModule,

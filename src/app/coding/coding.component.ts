@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Questions } from '../test-objects';
+import { Questions, Student } from '../test-objects';
 import { UserService } from '../services/user.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-coding',
@@ -13,16 +13,26 @@ export class CodingComponent implements OnInit {
   result : string = "";
   check : boolean = false;
   ans : string[] = [] ;
-  aptQuestions : Questions[];
+  codQuestions : Questions[];
+  student : Student = {};
+  score : number = 0;
+  studentId : number ;
 
   message : string = "time up";
   constructor(
     private testData : UserService,
-    private route : Router
+    private route : Router,
+    private router : ActivatedRoute
   ) { 
+    this.studentId=this.router.snapshot.params['id'];
     this.testData.get_coding_question().subscribe(
       data=>{
-        this.aptQuestions = data;
+        this.codQuestions = data;
+      }
+    )
+    this.testData.get_student_detailsById(this.studentId).subscribe(
+      data=>{
+        this.student = data;
       }
     )
   }
@@ -39,12 +49,25 @@ export class CodingComponent implements OnInit {
    onTimerFinished(e:Event){
     if (e["action"] == "done"){
       alert(this.message);
-       this.route.navigate(['login']);
+      //  this.route.navigate(['login']);
+      this.move();
      }
    }
 
   move(){
-    this.check = true;
+    for (let i = 0; i < 10; i++) {
+      if(this.ans[i] == this.codQuestions[i].answer){
+        this.score = this.score + 1;
+      }
+
+      this.testData.update_coding_score(this.student.emailId, this.score,this.student).subscribe(
+        data=>{
+          this.route.navigate(['result',this.student.studentId]);
+
+        }
+      )
+      //console.log ("Block statement execution no." + i);
+    }
   }
 
 

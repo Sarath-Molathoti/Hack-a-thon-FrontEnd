@@ -4,7 +4,7 @@
     CollegeName : {{student.collegeName}}
 </div>
 <div>
-    <countdown [config]="{leftTime : 60}" (event)="onTimerFinished($event)"></countdown>
+    <countdown [config]="{leftTime : 600}" (event)="onTimerFinished($event)"></countdown>
     <ul style="list-style-type:none;">
         <li *ngFor="let i of aptQuestions;index as k">
            {{k+1}}. {{i.question}}
@@ -20,7 +20,7 @@
          </ul>   
         </li>
     </ul>
-    <button class="btn btn-primary" (click)="move()">Get Answers</button>
+    <button class="btn btn-primary" (click)="move()">Move to Next Section</button>
 
 </div>
 
@@ -28,4 +28,5 @@
     <ul>
         <li *ngFor="let p of ans">{{p}}</li>
     </ul>
+    {{score}}
 </div>

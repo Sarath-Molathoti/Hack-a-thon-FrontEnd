@@ -16,6 +16,7 @@ export class AptitudeComponent implements OnInit {
   aptQuestions : Questions[];
   student : Student = {};
   studentId : number;
+  score : number = 0;
 
   message : string = "time up";
   constructor(
@@ -48,12 +49,26 @@ export class AptitudeComponent implements OnInit {
    onTimerFinished(e:Event){
     if (e["action"] == "done"){
       alert(this.message);
-       this.route.navigate(['login']);
+      //  this.route.navigate(['login']);
+      this.move();
      }
    }
 
   move(){
-    this.check = true;
+    for (let i = 0; i < 10; i++) {
+      if(this.ans[i] == this.aptQuestions[i].answer){
+        this.score = this.score + 1;
+      }
+
+      this.testData.update_aptitude_score(this.student.emailId, this.score,this.student).subscribe(
+        data=>{
+          this.route.navigate(['coding-test',this.student.studentId]);
+
+        }
+      )
+      //console.log ("Block statement execution no." + i);
+    }
+    // this.check = true;
   }
 
 }

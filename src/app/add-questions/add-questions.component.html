@@ -1,0 +1,52 @@
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div><a href="" class="navbar-brand">Admin Dashboard</a></div>
+  
+  
+    <ul class="navbar-nav navbar-collapse justify-content-end">
+      <li><a routerLink="/add-question" class="nav-link">Add Questions</a></li>
+      <li><a routerLink="/admin-results" class="nav-link">Check Results</a></li>
+    </ul>
+    </nav>
+  </header>
+<table class="table">
+    <thead >
+    
+        <th colspan="2">
+            Add Questions</th>
+      </thead>
+      <tbody>
+        
+        <tr>
+          <td > Question  </td>
+          <td> <input type="text" name="q.question" [(ngModel)]="q.question"  ></td>
+        </tr>
+        <tr>
+          <td > Option1  </td>
+          <td> <input type="text" name="q.option1" [(ngModel)]="q.option1" ></td>
+        </tr>
+        <tr>
+            <td > Option2  </td>
+            <td> <input type="text" name="q.option2" [(ngModel)]="q.option2" ></td>
+          </tr>
+          <tr>
+            <td > Option3  </td>
+            <td> <input type="text" name="q.option3" [(ngModel)]="q.option3" ></td>
+          </tr>
+          <tr>
+            <td > Option4  </td>
+            <td> <input type="text" name="q.option4" [(ngModel)]="q.option4" ></td>
+          </tr>
+          <tr>
+            <td > Answer  </td>
+            <td> <input type="text" name="q.answer" [(ngModel)]="q.answer" ></td>
+          </tr>
+          <tr>
+            <td > Question Type  </td>
+            <td> <input type="text" name="q.questionType" [(ngModel)]="q.questionType" placeholder="Aptitude/Coding" ></td>
+          </tr>
+       
+          <tr><td colspan="2"><button (click)=addQuestion() class="btn btn-success">Add Question</button> </td>
+        </tr>
+      </tbody>
+    </table>

@@ -7,6 +7,8 @@ import { RegisterComponent } from './register/register.component';
 import { ExamPageComponent } from './exam-page/exam-page.component';
 import { AptitudeComponent } from './aptitude/aptitude.component';
 import { CodingComponent } from './coding/coding.component';
+import { ResultComponent } from './result/result.component';
+import { AddQuestionsComponent } from './add-questions/add-questions.component';
 
 const routes: Routes = [
   {
@@ -16,9 +18,13 @@ const routes: Routes = [
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
       { path: 'admin', component: AdminComponent },
-      {path: '', component: RegisterComponent},
+      {path: '', component: LoginComponent},
       {path: 'aptitude-test/:id', component: AptitudeComponent},
-      {path: 'coding-test', component: CodingComponent}
+      {path: 'coding-test/:id', component: CodingComponent},
+      {path: 'result/:id', component: ResultComponent},
+      {path: 'add-question', component: AddQuestionsComponent},
+      {path: 'admin-results', component: AdminComponent}
+
       ]
   },
 

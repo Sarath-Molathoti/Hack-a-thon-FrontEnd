@@ -1,7 +1,12 @@
 <div>
+    Name : {{student.name}} <br>
+    Email : {{student.emailId}}<br>
+    CollegeName : {{student.collegeName}}
+</div>
+<div>
     <countdown [config]="{leftTime : 600}" (event)="onTimerFinished($event)"></countdown>
     <ul style="list-style-type:none;">
-        <li *ngFor="let i of aptQuestions;index as k">
+        <li *ngFor="let i of codQuestions;index as k">
            {{k+1}}. {{i.question}}
         <ul>
              <li style="list-style-type:none;"><label ><input [name]="k" type="radio" [value]="i.option1" [(ngModel)]="ans[k]"> 
@@ -15,7 +20,7 @@
          </ul>   
         </li>
     </ul>
-    <button class="btn btn-primary" (click)="move()">Get Answers</button>
+    <button class="btn btn-primary" (click)="move()">Submit Test</button>
 
 </div>
 

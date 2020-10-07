@@ -73,4 +73,12 @@ export class UserService {
   update_coding_score(email_id,score,student){
     return this.httpClient.put<any>(`http://localhost:8080/${email_id}/${score}/update_coding_score`,student);
   }
+
+  get_all_students(){
+    return this.httpClient.get<Student[]>(`http://localhost:8080/get_all_student_scores`);
+  }
+
+  add_question(question){
+    return this.httpClient.put<any>(this.baseUrl+'add_question', question)
+  }
 }

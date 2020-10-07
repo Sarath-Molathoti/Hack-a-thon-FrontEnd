@@ -8,7 +8,8 @@ export interface Student{
     address ?: string,
     cgpa ?: number,
     mobile ?: number,
-    score ?: number
+    aptitudeScore ?: number,
+    codingScore ?: number
 }
 
 export interface Questions{
