@@ -1,0 +1,26 @@
+<div>
+    <countdown [config]="{leftTime : 600}" (event)="onTimerFinished($event)"></countdown>
+    <ul style="list-style-type:none;">
+        <li *ngFor="let i of aptQuestions;index as k">
+           {{k+1}}. {{i.question}}
+        <ul>
+             <li style="list-style-type:none;"><label ><input [name]="k" type="radio" [value]="i.option1" [(ngModel)]="ans[k]"> 
+                  {{i.option1}}</label> </li>
+             <li style="list-style-type:none;"><label ><input [name]="k" type="radio" [value]="i.option2" [(ngModel)]="ans[k]"> 
+                  {{i.option2}}</label> </li>
+             <li style="list-style-type:none;"><label ><input [name]="k" type="radio" [value]="i.option3" [(ngModel)]="ans[k]"> 
+                  {{i.option3}}</label> </li>
+             <li style="list-style-type:none;"><label ><input [name]="k" type="radio" [value]="i.option4" [(ngModel)]="ans[k]"> 
+                  {{i.option4}}</label> </li>
+         </ul>   
+        </li>
+    </ul>
+    <button class="btn btn-primary" (click)="move()">Get Answers</button>
+
+</div>
+
+<div *ngIf="check">
+    <ul>
+        <li *ngFor="let p of ans">{{p}}</li>
+    </ul>
+</div>

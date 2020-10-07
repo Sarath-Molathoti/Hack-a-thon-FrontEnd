@@ -1,0 +1,78 @@
+<div class="login-page">
+    <mat-card class="login-card" *ngIf="!forgotFlag">
+        <mat-card-header>
+            <mat-card-title>
+                <img class="logo" src="../../assets/adp_logo.png" />
+                <div class="ml-n3">Login</div>
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <div>
+                    <mat-form-field>
+                        <mat-label>Enter your Email</mat-label>
+                        <button mat-icon-button matPrefix color="primary">
+                            <mat-icon>account_circle</mat-icon>
+                        </button>
+                        <input matInput formControlName="email" [(ngModel)]="emailId" name="emailId">
+                        <button mat-icon-button matSuffix color="primary">
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                        <mat-error *ngIf="!loginForm.controls['email'].valid && loginForm.controls['email'].touched">
+                            Please enter email address.
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="mt-2 mb-2">
+                    <mat-form-field>
+                        <mat-label>Enter your password</mat-label>
+                        <button mat-icon-button matPrefix color="primary">
+                            <mat-icon>lock</mat-icon>
+                        </button>
+                        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" [(ngModel)]="password" name="password">
+                        <button mat-icon-button matSuffix (click)="hide = !hide" color="primary">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                        <mat-error *ngIf="!loginForm.controls['password'].valid && loginForm.controls['password'].touched">
+                            Please enter password.
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <button mat-raised-button color="primary" type="submit" class="login-button" [disabled]="!loginForm.valid">
+                    Login
+                </button>
+                <div class="mb-4">
+                    <a class="" mat-button color="primary" (click)="forgotFlag=!forgotFlag">Forgot Password?</a>
+                    <a mat-button color="primary" [routerLink]="['../register']">Register</a>
+                </div>
+            </form>
+        </mat-card-content>
+    </mat-card>
+
+    <mat-card class="login-card" *ngIf="forgotFlag">
+        <mat-card-header>           
+            <mat-card-title>
+                <button class="mt-n2 ml-n4" mat-icon-button color="primary" (click)="forgotFlag=!forgotFlag">
+                    <mat-icon >arrow_back</mat-icon>
+                </button>        
+                <img class="logo" src="../../assets/adp_logo.png" />
+                <span class="ml-3">Find your Email</span>
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="pt-5">
+            <mat-form-field>
+                <mat-label>Enter your Email</mat-label>
+                <button mat-icon-button matPrefix color="primary">
+                    <mat-icon>email</mat-icon>
+                </button>
+                <input matInput [(ngModel)]="recoveryEmail" >
+                <button mat-icon-button matSuffix color="primary">
+                    <mat-icon>edit</mat-icon>
+                </button>
+            </mat-form-field>
+            <button class="float-right mr-4" mat-raised-button color="primary" [disabled]="recoveryEmail===''">
+                Next
+            </button>
+        </mat-card-content>
+    </mat-card>
+</div>

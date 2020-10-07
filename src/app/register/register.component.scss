@@ -1,0 +1,32 @@
+.spacer {
+    flex: 1 1 auto;
+}
+.registration-page{
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    background-image: url('../../assets/registration_page.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.registration-card{
+    width: 40vw;
+    height: 40vw;
+    margin-top: 3%;
+    padding-left:4%;
+}
+.register-button{
+    width: 88%;
+    margin-top: 3rem; 
+}
+.logo{
+    position: absolute;
+    width: 2vw;
+    right:0;
+    margin-right:2rem;
+}
+.image-upload{
+    height: 150px;
+    width:150px
+}

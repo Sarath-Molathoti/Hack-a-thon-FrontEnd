@@ -1,0 +1,29 @@
+.spacer {
+    flex: 1 1 auto;
+}
+.login-page{
+    display: flex;
+    min-height: 100vh;
+    justify-content: flex-end;
+    background-image: url('../../assets/adp.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.login-card{
+    width: 20vw;
+    height: 20vw;
+    margin-right: 8%;
+    margin-top: 10%;
+    padding-left: 2%;
+}
+.login-button{
+    width: 88%;
+    
+}
+.logo{
+    position: absolute;
+    width: 2vw;
+    right:0;
+    margin-right:2rem;
+}

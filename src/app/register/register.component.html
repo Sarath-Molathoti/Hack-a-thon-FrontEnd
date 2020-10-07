@@ -1,0 +1,122 @@
+<div class="registration-page">
+    <mat-card class="registration-card">
+        <mat-card-header>
+            <mat-card-title>
+                <img class="logo" src="../../assets/adp_logo.png" />
+                <div class="ml-n3">Registration</div>
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+                <div class="row">
+                    <div class="col-6">
+                        <mat-form-field class="mr-5 mb-2">
+                            <mat-label>Name</mat-label>
+                            <button mat-icon-button matPrefix color="primary">
+                                <mat-icon>account_circle</mat-icon>
+                            </button>
+                            <input matInput formControlName="name" [(ngModel)]="student.name" name="student.name">
+                            
+                            <mat-error
+                                *ngIf="!registrationForm.controls['name'].valid && registrationForm.controls['name'].touched">
+                                Please enter your name
+                            </mat-error>
+                        </mat-form-field>
+        
+                        <mat-form-field class="mr-5 mb-2">
+                            <mat-label>Email Id</mat-label>
+                            <button mat-icon-button matPrefix color="primary">
+                                <mat-icon>email</mat-icon>
+                            </button>
+                            <input matInput formControlName="email" [(ngModel)]="student.emailId" name="student.emailId" >
+                            
+                            <mat-error
+                                *ngIf="!registrationForm.controls['email'].valid && registrationForm.controls['email'].touched">
+                                Please enter email address.
+                            </mat-error>
+                        </mat-form-field>
+        
+                        <mat-form-field class="mr-5 mb-2">
+                            <mat-label>Password</mat-label>
+                            <button mat-icon-button matPrefix color="primary">
+                                <mat-icon>lock</mat-icon>
+                            </button>
+                            <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" [(ngModel)]="student.password" name="student.password">
+                            <button mat-icon-button matSuffix (click)="hide = !hide" color="primary">
+                                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            </button>
+                            <mat-error
+                                *ngIf="registrationForm.controls['password'].hasError('required')">
+                                Please enter password.
+                            </mat-error>
+                            <mat-error
+                                *ngIf="registrationForm.controls['password'].hasError('pattern')">
+                                Minimum 8 characters, at least one letter, one number and one special character
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-6">
+                        <div class="d-flex justify-content-center">
+                            <img *ngIf="!this.imageUrl" src="../../assets//default_user_image.jpg" class="image-upload">
+                            <img *ngIf="this.imageUrl" [src]="imageUrl" class="image-upload">
+                        </div>
+                        <div class="d-flex justify-content-center mt-3">
+                            <input #image type="file" accept=".png, .jpg, .jpeg" (change)="imageUpload($event)" style="display: none"/>
+                            <button mat-raised-button color="primary" (click)="image.click()">
+                                <mat-icon>file_upload</mat-icon>
+                                Upload
+                            </button>
+                        </div>                                                                    
+                    </div>
+                </div>
+
+                <div class="row col-12">
+                    <mat-form-field class="mr-3 mb-2">
+                        <mat-label>Age</mat-label>
+                        <button mat-icon-button matPrefix color="primary">
+                            <mat-icon>face</mat-icon>
+                        </button>
+                        <input matInput formControlName="age" [(ngModel)]="student.age" name="student.age">
+                    </mat-form-field>
+    
+                    <mat-form-field class="mb-2">
+                        <mat-label>College Name</mat-label>
+                        <button mat-icon-button matPrefix color="primary">
+                            <mat-icon>markunread_mailbox</mat-icon>
+                        </button>
+                        <input matInput formControlName="collegeName" [(ngModel)]="student.collegeName" name="student.collegeName">
+                    </mat-form-field>
+
+                    <mat-form-field class="mr-3 mb-2">
+                        <mat-label>Cgpa/Score</mat-label>
+                        <button mat-icon-button matPrefix color="primary">
+                            <mat-icon>invert_colors</mat-icon>
+                        </button>
+                        <input matInput formControlName="cgpa" [(ngModel)]="student.cgpa" name="student.cgpa">                  
+                    </mat-form-field>
+
+                    <mat-form-field class="mb-2">
+                        <mat-label>Contact</mat-label>
+                        <button mat-icon-button matPrefix color="primary">
+                            <mat-icon>phone</mat-icon>
+                        </button>
+                        <input matInput formControlName="mobile" [(ngModel)]="student.mobile" name="student.mobile">                  
+                    </mat-form-field>
+    
+                    <mat-form-field class="w-100 mb-2">
+                        <mat-label>Address</mat-label>
+                        <button mat-icon-button matPrefix color="primary">
+                            <mat-icon>place</mat-icon>
+                        </button>
+                        <textarea matInput formControlName="address" [(ngModel)]="student.address" name="student.address"></textarea>                     
+                    </mat-form-field>   
+                </div>
+                
+                <button mat-raised-button color="primary" type="submit" class="register-button"
+                    [disabled]="!registrationForm.valid">
+                    Register
+                </button>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>
