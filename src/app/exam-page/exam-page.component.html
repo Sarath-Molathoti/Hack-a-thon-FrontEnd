@@ -1,26 +1,40 @@
-<div>
-    <countdown [config]="{leftTime : 10}" (event)="onTimerFinished($event)"></countdown>
-    <ul style="list-style-type:none;">
-        <li *ngFor="let i of aptQuestions;index as k">
-           {{k+1}}. {{i.question}}
-        <ul>
-             <li style="list-style-type:none;"><label ><input [name]="k" type="radio" [value]="i.option1" [(ngModel)]="ans[k]"> 
-                  {{i.option1}}</label> </li>
-             <li style="list-style-type:none;"><label ><input [name]="k" type="radio" [value]="i.option2" [(ngModel)]="ans[k]"> 
-                  {{i.option2}}</label> </li>
-             <li style="list-style-type:none;"><label ><input [name]="k" type="radio" [value]="i.option3" [(ngModel)]="ans[k]"> 
-                  {{i.option3}}</label> </li>
-             <li style="list-style-type:none;"><label ><input [name]="k" type="radio" [value]="i.option4" [(ngModel)]="ans[k]"> 
-                  {{i.option4}}</label> </li>
-         </ul>   
-        </li>
-    </ul>
-    <button class="btn btn-primary" (click)="move()">Get Answers</button>
-
-</div>
-
-<div *ngIf="check">
-    <ul>
-        <li *ngFor="let p of ans">{{p}}</li>
-    </ul>
-</div>
+<div class="container">
+    <h1 style="color:red;">   
+      Online Test  
+    </h1>         
+    <table class="table table-bordered ">
+      <thead>
+        <tr>
+          <th>Section </th>
+          <th>Questions </th>
+          <th>Duration</th>
+          <th>Action</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        <tr >
+          <td>Aptitude</td>
+          <td>10 questions</td>
+          <td>15 mins</td>
+          
+          <td>
+          <button type="button" class="btn btn-primary" [disabled]="disableAptBtn" (click)="goToAptitude()">Start</button>&nbsp;&nbsp;
+          
+          </td>
+        </tr>
+        <tr >
+          <td>Coding</td>
+          <td>10 questions</td>
+          <td>20 mins</td>
+          
+          <td>
+          <button type="button" class="btn btn-primary" [disabled]="disableCodBtn" (click)="goToCoding()">Start</button>&nbsp;&nbsp;
+          
+          </td>
+        </tr>
+        
+      </tbody>
+    </table>
+  
+  </div>

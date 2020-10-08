@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { Questions } from '../test-objects';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { GlobalConstants } from '../global-constants';
 
 @Component({
   selector: 'app-exam-page',
@@ -10,21 +11,19 @@ import { Router } from '@angular/router';
 })
 export class ExamPageComponent implements OnInit {
 
-  result : string = "";
-  check : boolean = false;
-  ans : string[] = [] ;
-  aptQuestions : Questions[];
-
-  message : string = "time up";
+  studentId : number;
+  disableAptBtn : boolean ; 
+  disableCodBtn : boolean ;
   constructor(
     private testData : UserService,
-    private route : Router
+    private route : Router, private router : ActivatedRoute, private globals : GlobalConstants
   ) { 
-    this.testData.get_aptitude_question().subscribe(
-      data=>{
-        this.aptQuestions = data;
-      }
-    )
+
+    this.disableAptBtn = globals.aptBtn;
+    this.disableCodBtn = globals.codBtn;
+    this.studentId=this.router.snapshot.params['id'];
+
+    
   }
 
   
@@ -32,19 +31,15 @@ export class ExamPageComponent implements OnInit {
   ngOnInit(): void {
   }
 
-   handleEvent(event : Event){
-     //this.route.navigate(['login']);
-   }
-
-   onTimerFinished(e:Event){
-    if (e["action"] == "done"){
-      alert(this.message);
-       this.route.navigate(['login']);
-     }
-   }
-
-  move(){
-    this.check = true;
+  goToAptitude(){
+    this.globals.aptBtn = true;
+      this.route.navigate(['aptitude-test',this.studentId]);
   }
 
+  goToCoding(){
+    this.globals.codBtn = true;
+    this.route.navigate(['coding-test',this.studentId]);
+  }
+
+  
 }

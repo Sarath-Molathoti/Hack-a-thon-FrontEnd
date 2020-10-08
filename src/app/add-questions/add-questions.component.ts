@@ -22,7 +22,9 @@ export class AddQuestionsComponent implements OnInit {
   addQuestion(){
     this.userService.add_question(this.q).subscribe(
       data=>{
-        this.router.navigate(['admin-results']);
+        window.location.reload();
+
+        // this.router.navigate(['admin-results']);
       }
     )
   }

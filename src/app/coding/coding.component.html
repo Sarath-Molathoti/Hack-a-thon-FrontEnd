@@ -4,7 +4,7 @@
     CollegeName : {{student.collegeName}}
 </div>
 <div>
-    <countdown [config]="{leftTime : 600}" (event)="onTimerFinished($event)"></countdown>
+    <countdown [config]="{leftTime : 1200}" (event)="onTimerFinished($event)"></countdown>
     <ul style="list-style-type:none;">
         <li *ngFor="let i of codQuestions;index as k">
            {{k+1}}. {{i.question}}

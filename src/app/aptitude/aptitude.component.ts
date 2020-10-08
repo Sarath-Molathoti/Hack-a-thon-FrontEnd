@@ -62,7 +62,7 @@ export class AptitudeComponent implements OnInit {
 
       this.testData.update_aptitude_score(this.student.emailId, this.score,this.student).subscribe(
         data=>{
-          this.route.navigate(['coding-test',this.student.studentId]);
+          this.route.navigate(['exam-page',this.student.studentId]);
 
         }
       )

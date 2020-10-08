@@ -15,6 +15,7 @@ import { AptitudeComponent } from './aptitude/aptitude.component';
 import { CodingComponent } from './coding/coding.component';
 import { ResultComponent } from './result/result.component';
 import { AddQuestionsComponent } from './add-questions/add-questions.component';
+import { GlobalConstants } from './global-constants';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,7 @@ import { AddQuestionsComponent } from './add-questions/add-questions.component';
     ReactiveFormsModule,
     CountdownModule
     ],
-  providers: [],
+  providers: [GlobalConstants],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

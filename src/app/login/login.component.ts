@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
         this.userservice.get_student_details(this.emailId).subscribe(
           data=>{
             this.id = data.studentId;
-            this.router.navigate(['aptitude-test',this.id]);
+            this.router.navigate(['exam-page',this.id]);
           }
         )
         //this.router.navigate(['aptitude-test']);

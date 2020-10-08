@@ -23,7 +23,8 @@ const routes: Routes = [
       {path: 'coding-test/:id', component: CodingComponent},
       {path: 'result/:id', component: ResultComponent},
       {path: 'add-question', component: AddQuestionsComponent},
-      {path: 'admin-results', component: AdminComponent}
+      {path: 'admin-results', component: AdminComponent},
+      {path: 'exam-page/:id', component : ExamPageComponent}
 
       ]
   },
