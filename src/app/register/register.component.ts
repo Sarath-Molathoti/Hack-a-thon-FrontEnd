@@ -48,12 +48,22 @@ export class RegisterComponent implements OnInit {
     mentorData.append('mobile', this.registrationForm.value.mobile);
     mentorData.append('address', this.registrationForm.value.address);
     //mentorData.append('uploadImg', null);
-    this.userService.studentRegistration(this.student).subscribe(data => {
-      this.snackBar.open('Registration Successfull !!', '', {duration: 3000});
-      this.router.navigate(['login']);
-    }, error => {
-      this.snackBar.open('Email exists !!', '', {duration: 3000});
-    });
+    this.userService.get_email_count(this.student.emailId).subscribe(
+      data=>{
+        if(data == true){
+          this.snackBar.open('Email exists !!', '', {duration: 3000});
+
+        }else{
+          this.userService.studentRegistration(this.student).subscribe(data => {
+            this.snackBar.open('Registration Successfull !!', '', {duration: 3000});
+            this.router.navigate(['login']);
+          }, error => {
+            this.snackBar.open('Email exists !!', '', {duration: 3000});
+          });
+        }
+      }
+    )
+    
   }
 
   imageUpload($event) {

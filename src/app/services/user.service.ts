@@ -94,4 +94,9 @@ export class UserService {
     return this.httpClient.get<Student[]>(`http://localhost:8080/get_students_by_cgpa`);
   }
 
+  get_email_count(email_id){
+    return this.httpClient.get<boolean>(`http://localhost:8080/${email_id}/get_email_count`);
+
+  }
+
 }

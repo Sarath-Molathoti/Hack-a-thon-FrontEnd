@@ -2,7 +2,7 @@
     <mat-card class="registration-card">
         <mat-card-header>
             <mat-card-title>
-                <img class="logo" src="../../assets/adp_logo.png" />
+                <!-- <img class="logo" src="../../assets/adp_logo.png" /> -->
                 <div class="ml-n3">Registration</div>
             </mat-card-title>
         </mat-card-header>
@@ -55,19 +55,19 @@
                             </mat-error>
                         </mat-form-field>
                     </div>
-                    <div class="col-6">
+                     <div class="col-6">
                         <div class="d-flex justify-content-center">
-                            <img *ngIf="!this.imageUrl" src="../../assets//default_user_image.jpg" class="image-upload">
+                            <img *ngIf="!this.imageUrl" src="../../assets//adp_logo.png" class="image-upload">
                             <img *ngIf="this.imageUrl" [src]="imageUrl" class="image-upload">
                         </div>
-                        <div class="d-flex justify-content-center mt-3">
+                        <!-- <div class="d-flex justify-content-center mt-3">
                             <input #image type="file" accept=".png, .jpg, .jpeg" (change)="imageUpload($event)" style="display: none"/>
                             <button mat-raised-button color="primary" (click)="image.click()">
                                 <mat-icon>file_upload</mat-icon>
                                 Upload
                             </button>
-                        </div>                                                                    
-                    </div>
+                        </div>                                                                     -->
+                    </div> 
                 </div>
 
                 <div class="row col-12">
