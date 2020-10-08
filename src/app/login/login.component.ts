@@ -33,15 +33,18 @@ export class LoginComponent implements OnInit {
   onSubmit(){
     this.userservice.login(this.emailId,this.password).subscribe( data => {
       if(data == true){
-        sessionStorage.setItem('login', JSON.stringify(data));
+        if(this.emailId == "admin@adp.com" && this.password == "Admin@1234"){
+          this.router.navigate(['admin']);
+        }else{
+          sessionStorage.setItem('login', JSON.stringify(data));
         this.userservice.get_student_details(this.emailId).subscribe(
           data=>{
             this.id = data.studentId;
             this.router.navigate(['exam-page',this.id]);
           }
         )
-        //this.router.navigate(['aptitude-test']);
-      }
+        }
+         }
       
     })
   }
