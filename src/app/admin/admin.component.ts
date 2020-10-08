@@ -12,6 +12,9 @@ import { Student } from '../test-objects';
 })
 export class AdminComponent implements OnInit {
   students : Student[] ;
+  filterName: string ="";
+  types = ['Show All','Aptitude Score(Highest to Lowest)','Coding Score(Highest to Lowest)', 'Cgpa(Highest to Lowest)']
+
 
   // displayedColumns: string[] = ['name', 'percentage'];
   // dataSource = new MatTableDataSource<any>();
@@ -46,5 +49,37 @@ export class AdminComponent implements OnInit {
   //     this.dataSource.paginator.firstPage();
   //   }
   // }
+
+  filter_students(){
+    if(this.filterName == "Aptitude Score(Highest to Lowest)"){
+      this.userService.get_students_by_aptitude_score().subscribe(
+        data=>{
+          this.students = data;
+        }
+      )
+    }else if(this.filterName == "Coding Score(Highest to Lowest)"){
+      this.userService.get_students_by_coding_score().subscribe(
+        data=>{
+          this.students = data;
+        }
+      )
+    }else if(this.filterName == "Cgpa(Highest to Lowest)"){
+      this.userService.get_students_by_cgpa().subscribe(
+        data=>{
+          this.students = data;
+        }
+      )
+    }else{
+      this.userService.get_all_students().subscribe(
+        response =>{
+          //console.log(response);
+          this.students=response;
+          this.students.sort(function(a, b){
+            return ((b.aptitudeScore+b.codingScore) - (a.aptitudeScore+a.codingScore)) ;
+        })
+        }
+      )
+    }
+  }
 
 }

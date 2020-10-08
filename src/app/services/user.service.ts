@@ -81,4 +81,17 @@ export class UserService {
   add_question(question){
     return this.httpClient.put<any>(this.baseUrl+'add_question', question)
   }
+
+  get_students_by_aptitude_score(){
+    return this.httpClient.get<Student[]>(`http://localhost:8080/get_students_by_aptitude_score`);
+  }
+
+  get_students_by_coding_score(){
+    return this.httpClient.get<Student[]>(`http://localhost:8080/get_students_by_coding_score`);
+  }
+
+  get_students_by_cgpa(){
+    return this.httpClient.get<Student[]>(`http://localhost:8080/get_students_by_cgpa`);
+  }
+
 }
