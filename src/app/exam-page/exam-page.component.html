@@ -1,40 +1,57 @@
 <div class="container">
-    <h1 style="color:red;">   
-      Online Test  
-    </h1>         
-    <table class="table table-bordered ">
-      <thead>
-        <tr>
-          <th>Section </th>
-          <th>Questions </th>
-          <th>Duration</th>
-          <th>Action</th>
+    <div  style="color:red;">
+      <h1  style="text-align: center;">   
+        Online Test  
+      </h1> 
+    </div>        
+      <table class="table table-bordered ">
+        <thead>
+          <tr>
+            <th>Section </th>
+            <th>Questions </th>
+            <th>Duration</th>
+            <th>Action</th> 
+            
+          </tr>
+        </thead>
+        <tbody>
+          <tr >
+            <td>Aptitude</td>
+            <td>10 questions</td>
+            <td>15 mins</td>
+            
+             <td>
+            <button type="button" class="btn btn-primary" [disabled]="disableAptBtn" (click)="goToAptitude()">Start</button>&nbsp;&nbsp;
+            
+            </td>
+          </tr>
+          <tr >
+            <td>Coding</td>
+            <td>10 questions</td>
+            <td>20 mins</td>
+            
+            <td>
+            <button type="button" class="btn btn-primary" [disabled]="disableCodBtn" (click)="goToCoding()">Start</button>&nbsp;&nbsp;
+            
+            </td> 
+          </tr>
           
-        </tr>
-      </thead>
-      <tbody>
-        <tr >
-          <td>Aptitude</td>
-          <td>10 questions</td>
-          <td>15 mins</td>
-          
-          <td>
-          <button type="button" class="btn btn-primary" [disabled]="disableAptBtn" (click)="goToAptitude()">Start</button>&nbsp;&nbsp;
-          
-          </td>
-        </tr>
-        <tr >
-          <td>Coding</td>
-          <td>10 questions</td>
-          <td>20 mins</td>
-          
-          <td>
-          <button type="button" class="btn btn-primary" [disabled]="disableCodBtn" (click)="goToCoding()">Start</button>&nbsp;&nbsp;
-          
-          </td>
-        </tr>
+        </tbody>
+      </table>
+      
+      <div class="instruction">
+        <h5  style="text-align: justify;">   
+          Instructions:
+        </h5>
+        <p style="text-align: justify;">
         
-      </tbody>
-    </table>
-  
-  </div>
+        1.You may not use textbook, course notes or receive help from a proctor or any other outside source.<br>
+        2.You will have 35 minutes to complete both the section once you begin. You will have one attempt to complete the test.<br>
+        3.Each test contain 10 questions, 1 mark for each.<br>
+        4.Each test will save and submit automatically when the timer expires.<br>
+        5.You can modify your answer any number of times while the test is in progress.<br>
+        6.To submit the test, click the submit button. Once you have clicked the Submit button, the answers cannot be changed. <br>
+      </p>
+    </div>
+    
+    </div>

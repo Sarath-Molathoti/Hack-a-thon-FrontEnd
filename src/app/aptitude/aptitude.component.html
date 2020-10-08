@@ -1,10 +1,20 @@
-<div>
+<div class="container p-2 my-2 bg-info text-white">
+    <h5 style="text-align: center;">
+        Aptitude Section
+    </h5>
+    <div style="text-align:left;">
     Name : {{student.name}} <br>
     Email : {{student.emailId}}<br>
     CollegeName : {{student.collegeName}}
+    </div>
+
+    <div style="text-align:right;">
+    <countdown  [config]="{leftTime : 900}" (event)="onTimerFinished($event)"></countdown>
+    </div>
+
 </div>
-<div>
-    <countdown [config]="{leftTime : 900}" (event)="onTimerFinished($event)"></countdown>
+<div class="container p-3 my-3 border">
+    
     <ul style="list-style-type:none;">
         <li *ngFor="let i of aptQuestions;index as k">
            {{k+1}}. {{i.question}}
@@ -20,8 +30,9 @@
          </ul>   
         </li>
     </ul>
+    <div class="text-center"> 
     <button class="btn btn-primary" (click)="move()">Move to Next Section</button>
-
+    </div>
 </div>
 
 <div *ngIf="check">

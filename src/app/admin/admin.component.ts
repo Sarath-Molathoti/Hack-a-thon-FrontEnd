@@ -16,17 +16,12 @@ export class AdminComponent implements OnInit {
   types = ['Show All','Aptitude Score(Highest to Lowest)','Coding Score(Highest to Lowest)', 'Cgpa(Highest to Lowest)']
 
 
-  // displayedColumns: string[] = ['name', 'percentage'];
-  // dataSource = new MatTableDataSource<any>();
-
-  // @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
-  // @ViewChild(MatSort) sort: MatSort;
+  
   constructor(
     private userService : UserService
   ) {
     this.userService.get_all_students().subscribe(
       response =>{
-        //console.log(response);
         this.students=response;
         this.students.sort(function(a, b){
           return ((b.aptitudeScore+b.codingScore) - (a.aptitudeScore+a.codingScore)) ;

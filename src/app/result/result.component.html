@@ -1,18 +1,34 @@
 <header>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-        <div><a href="" class="navbar-brand"></a></div>
-  
-  
-    <ul class="navbar-nav navbar-collapse justify-content-end">
-      
-      <li><a routerLink="/login" class="nav-link">Logout</a></li>
-    </ul>
-    </nav>
-  </header>
-<h1>You're done! Thank you for taking the time to complete our Test.</h1>
+  <nav class="navbar navbar-expand-md navbar-dark bg-info">
+      <div><a href="" class="navbar-brand"></a></div>
+
+
+  <ul class="navbar-nav navbar-collapse justify-content-end">
+    
+    <li><a style="color: antiquewhite;"routerLink="/login" class="nav-link" >Logout</a></li>
+  </ul>
+  </nav>
+</header>
+<div>
+<span></span>
+<h2 style="text-align: center;">
+You're done! 
+</h2>
+
+<h3 style="text-align: center;">
+Thank you for taking the time to complete our Test.
+</h3>
 <br>
-<h2>Here are your Test Results</h2>
+<h4 style="text-align: center;">
+Here are your Test Results
+</h4>
+</div>
+<span>
+</span>
+<div class="container p-7 my-8 bg-primary text-white">
+<p style="text-align: center;">
 Aptitude Score : {{student.aptitudeScore}}/10 <br>
 Coding Score : {{student.codingScore}}/10<br>
 Total Score : {{total}}/20
-
+</p>
+</div>
